@@ -1,0 +1,46 @@
+<template id="item-card">
+  <h4 class="title" attribute="title"></h4>
+  <p class="description" attribute="description"></p>
+  <p class="ingredients" attribute="ingredients"></p>
+  <small class="price" attribute="price"></small>
+</template>
+
+<script lang="ts">
+  customElements.define(
+    "item-card",
+    class extends HTMLElement {
+      constructor() {
+        super();
+        let template = document.getElementById("item-card");
+        let templateContent = template.content;
+
+        this.title = this.dataset?.title;
+        this.description = this.dataset?.description;
+        this.ingredients = this.dataset?.ingredients;
+        this.price = this.dataset?.price;
+        this.searchTerm = this.dataset?.searchTerm;
+
+        let shadowRoot = this.attachShadow({ mode: "open" });
+        shadowRoot.appendChild(templateContent.cloneNode(true));
+        this.render()
+      }
+      render() {
+        this.shadowRoot.querySelectorAll("[attribute]").forEach((elem) => {
+          const attribute = elem.getAttribute("attribute");
+          const value = this.dataset?.[attribute];
+          if (attribute && value) elem.textContent = value;
+          else elem.style.display = "none";
+        })
+      }
+      static get observedAttributes() {
+        return ["search-term", "description", "price", "title"];
+      }
+      attributeChangedCallback(name, oldValue, newValue) {
+        if (name === "search-term") {
+          this.searchTerm = newValue;
+          this.render();
+        }
+      }
+    }
+  );
+</script>

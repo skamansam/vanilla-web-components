@@ -1,0 +1,62 @@
+<template id="category-card">
+  <h2 class="title" attribute="title"></h2>
+  <p class="description" attribute="description"></p>
+  <small class="filter-text" attribute="searchTerm"></small>
+  <p class="items" attribute="items"></p>
+</template>
+
+<script lang="ts">
+  customElements.define(
+    "category-card",
+    class extends HTMLElement {
+      constructor() {
+        super();
+        let template = document.getElementById("category-card");
+        let templateContent = template.content;
+
+        this.filteredItems = JSON.parse(this.dataset.items);
+        this.searchTerm = this.getAttribute("search-term");
+
+        let shadowRoot = this.attachShadow({ mode: "open" });
+        shadowRoot.appendChild(templateContent.cloneNode(true));
+        this.render()
+      }
+      render() {
+        this.shadowRoot.querySelectorAll("[attribute]").forEach((elem) => {
+          const attribute = elem.getAttribute("attribute");
+          const value = this.dataset?.[attribute];
+          if (attribute && value) elem.textContent = value;
+          else elem.style.display = "none";
+        });
+        this.shadowRoot.querySelector('[attribute="items"]').innerHTML = Object.entries(this.filteredItems).map(([item, data]) => {
+          return `<item-card
+                    data-title="${item}"
+                    data-ingredients="${data?.ingredients || ''}"
+                    data-price="${data?.price || ''}"
+                    data-name="${data?.name || ''}"
+                    data-id="${data?.id || ''}"
+                  >
+                  </item-card>`;
+        }).join("")
+      }
+      static get observedAttributes() {
+        return ["data-search-term", "data-description", "data-items"];
+      }
+      attributeChangedCallback(name, oldValue, newValue) {
+        if (name === "data-search-term") {
+          if (newValue == "" || !newValue) {
+            this.filteredItems = JSON.parse(this.dataset.items);
+            this.render();
+            return;
+          }
+          const allItems = JSON.parse(this.dataset.items);
+          this.filteredItems = {};
+          Object.entries(allItems).forEach(([item, data]) => {
+            if (item.includes(newValue)) this.filteredItems[item] = data;
+          });
+          this.render();
+        }
+      }
+    }
+  );
+</script>
