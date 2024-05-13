@@ -101,4 +101,6 @@ button:focus-visible {
 
 p svg {
   display: inline-block;
+  margin-bottom: 0.4em;
+  margin-right: 0.5ex;
 }
