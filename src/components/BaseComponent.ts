@@ -5,20 +5,28 @@ export default class BaseComponent extends HTMLElement {
     let template = document.getElementById(htmlElement);
     let templateContent = template.content;
 
+
     let shadowRoot = this.attachShadow({ mode: "open" });
     shadowRoot.appendChild(templateContent.cloneNode(true));
+    this.__initComponent();
   }
-  setup() {
-
+  __initComponent() {
+    this.__setup();
+    if(this.setup) this.setup();
+    this.__render();
+    if(this.render) this.render();
   }
-  render() {
+  __setup() {
+    if (!this.setup || this.setup === this.constructor.prototype.setup) return;
+  }
+  __render() {
     this.shadowRoot.querySelectorAll("[attribute]").forEach((elem) => {
       const attribute = elem.getAttribute("attribute");
       const value = this.dataset?.[attribute];
       if (attribute && value) elem.textContent = value;
       else elem.style.display = "none";
     });
-    this.render();
+    if (!this.render || this.render === this.constructor.prototype.render) return;
   }
   static get observedAttributes() {
     return [];

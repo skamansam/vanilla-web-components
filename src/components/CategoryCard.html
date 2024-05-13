@@ -5,29 +5,16 @@
   <p class="items" attribute="items"></p>
 </template>
 
-<script lang="ts">
+<script lang="ts" type="module">
+  import BaseComponent from "./src/components/BaseComponent.ts";
   customElements.define(
     "category-card",
-    class extends HTMLElement {
-      constructor() {
-        super();
-        let template = document.getElementById("category-card");
-        let templateContent = template.content;
-
+    class CategoryCard extends BaseComponent {
+      setup() {
         this.filteredItems = JSON.parse(this.dataset.items);
         this.searchTerm = this.getAttribute("search-term");
-
-        let shadowRoot = this.attachShadow({ mode: "open" });
-        shadowRoot.appendChild(templateContent.cloneNode(true));
-        this.render()
       }
       render() {
-        this.shadowRoot.querySelectorAll("[attribute]").forEach((elem) => {
-          const attribute = elem.getAttribute("attribute");
-          const value = this.dataset?.[attribute];
-          if (attribute && value) elem.textContent = value;
-          else elem.style.display = "none";
-        });
         this.shadowRoot.querySelector('[attribute="items"]').innerHTML = Object.entries(this.filteredItems).map(([item, data]) => {
           return `<item-card
                     data-title="${item}"
