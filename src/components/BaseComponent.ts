@@ -20,8 +20,8 @@ export default class BaseComponent extends HTMLElement {
     if (!this.setup || this.setup === this.constructor.prototype.setup) return;
   }
   __render() {
-    this.shadowRoot.querySelectorAll("[attribute]").forEach((elem) => {
-      const attribute = elem.getAttribute("attribute");
+    this.shadowRoot.querySelectorAll("[part]").forEach((elem) => {
+      const attribute = elem.getAttribute("part");
       const value = this.dataset?.[attribute];
       if (attribute && value) elem.textContent = value;
       else elem.style.display = "none";

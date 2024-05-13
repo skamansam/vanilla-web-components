@@ -5,8 +5,8 @@
     placeholder="search for categories or foods"
     onKeyDown="searchString=this.value"
   />
-  <div class="search-text" attribute="searchText"></div>
-  <div class="search-results" attribute="searchResults"></div>
+  <div class="search-text" part="searchTerm"></div>
+  <div class="search-results" part="searchResults"></div>
 </template>
 
 <script lang="ts" type="module">
@@ -17,39 +17,38 @@
       setup() {
         this._menu = {};
         this.filteredMenu = this._menu;
-        this.searchTerm = this.getAttribute("search-term");
+        this.searchTerm = this.dataset?.searchTerm ?? "";
 
         this.shadowRoot
           .querySelector("[name='search']")
           .addEventListener("input", (e) => {
             this.searchTerm = e.target.value;
-            console.log("searching...", this.searchTerm);
             this.render();
           });
       }
       render() {
         const filteredMenu = this.filterMenu(this.searchTerm);
         if (this.searchTerm) {
-          this.shadowRoot.querySelector(
-            '[attribute="searchText"]'
-          ).style.display = "block";
-          this.shadowRoot.querySelector(
-            '[attribute="searchText"]'
-          ).innerHTML = `Filtering for "${this.searchTerm}"`;
+          const searchTextElement = this.shadowRoot.querySelector(
+            '[part="searchTerm"]'
+          );
+          searchTextElement.style.display = "block";
+          searchTextElement.innerHTML = `Filtering for "${this.searchTerm}"`;
         }
-        this.shadowRoot.querySelector(
-          '[attribute="searchResults"]'
-        ).style.display = "block";
-        this.shadowRoot.querySelector('[attribute="searchResults"]').innerHTML =
-          "";
-        this.shadowRoot.querySelector('[attribute="searchResults"]').innerHTML =
+        const searchResultsElement = this.shadowRoot.querySelector(
+          '[part="searchResults"]'
+        );
+        searchResultsElement.style.display = "block";
+        searchResultsElement.innerHTML = "";
+        searchResultsElement.innerHTML =
           Object.entries(filteredMenu)
             .map(
               ([category, data]) =>
                 `<category-card
                 data-title="${category}"
                 data-description="${data?.description}"
-                data-items='${JSON.stringify(data?.items)}'>
+                data-items='${JSON.stringify(data?.items)}'
+                data-search-term="${this.searchTerm}">
               </category-card>`
             )
             .join("\n");
@@ -64,7 +63,9 @@
           if (data?.description.toLowerCase().includes(search))
             filteredMenu[category] = data;
           if (
-            Object.entries(data?.items || {}).some(([item, _]) => item.toLowerCase().includes(search))
+            Object.entries(data?.items || {}).some(([item, _]) =>
+              item.toLowerCase().includes(search)
+            )
           )
             filteredMenu[category] = data;
           return false;

@@ -1,46 +1,62 @@
 <template id="category-card">
-  <h2 class="title" attribute="title"></h2>
-  <p class="description" attribute="description"></p>
-  <small class="filter-text" attribute="searchTerm"></small>
-  <p class="items" attribute="items"></p>
+  <h2 class="title" part="title"></h2>
+  <p class="description" part="description"></p>
+  <!-- <small class="filter-text" part="searchTerm"></small> -->
+  <p class="items" part="items"></p>
+  <style>
+    span.highlight {
+      background-color: yellow;
+      color: black;
+    }
+  </style>
+
 </template>
 
 <script lang="ts" type="module">
   import BaseComponent from "./src/components/BaseComponent.ts";
+  import highlight from "./src/lib/highlight.ts";
   customElements.define(
     "category-card",
     class CategoryCard extends BaseComponent {
       setup() {
-        this.filteredItems = JSON.parse(this.dataset.items);
-        this.searchTerm = this.getAttribute("search-term");
+        this.filteredItems = JSON.parse(this.dataset?.items);
+        this.searchTerm = this.dataset?.searchTerm;
       }
       render() {
-        this.shadowRoot.querySelector('[attribute="items"]').innerHTML = Object.entries(this.filteredItems).map(([item, data]) => {
-          return `<item-card
-                    data-title="${item}"
-                    data-ingredients="${data?.ingredients || ''}"
-                    data-price="${data?.price || ''}"
-                    data-name="${data?.name || ''}"
-                    data-id="${data?.id || ''}"
-                  >
-                  </item-card>`;
-        }).join("")
+        this._filterItems(this.searchTerm || "");
+        this.shadowRoot.querySelector('[part="title"]').innerHTML = highlight(this.dataset?.title, this.searchTerm)
+        this.shadowRoot.querySelector('[part="description"]').innerHTML = highlight(this.dataset?.description, this.searchTerm)
+        this.shadowRoot.querySelector('[part="items"]').innerHTML = Object.entries(this.filteredItems).map(([item, data]) => {
+            return `<item-card
+                      data-title="${item}"
+                      data-ingredients="${data?.ingredients || ''}"
+                      data-price="${data?.price || ''}"
+                      data-name="${data?.name || ''}"
+                      data-id="${data?.id || ''}"
+                      data-search-term="${this.searchTerm}"
+                    >
+                    </item-card>`;
+          }).join("")
       }
       static get observedAttributes() {
         return ["data-search-term", "data-description", "data-items"];
       }
+      _filterItems() {
+        const allItems = JSON.parse(this.dataset.items);
+        if (!this.searchTerm || this.searchTerm === "") {
+          this.filteredItems = allItems;
+          return;
+        }
+        let filteredItems = {};
+        Object.entries(allItems).forEach(([item, data]) => {
+          if (item.toLowerCase().includes(this.searchTerm)) filteredItems[item] = data;
+        });
+        if (Object.keys(filteredItems).length === 0) filteredItems = allItems;
+        this.filteredItems = filteredItems;
+      }
       attributeChangedCallback(name, oldValue, newValue) {
         if (name === "data-search-term") {
-          if (newValue == "" || !newValue) {
-            this.filteredItems = JSON.parse(this.dataset.items);
-            this.render();
-            return;
-          }
-          const allItems = JSON.parse(this.dataset.items);
-          this.filteredItems = {};
-          Object.entries(allItems).forEach(([item, data]) => {
-            if (item.includes(newValue)) this.filteredItems[item] = data;
-          });
+          this.searchTerm = newValue;
           this.render();
         }
       }

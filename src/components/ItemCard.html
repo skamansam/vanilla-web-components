@@ -1,14 +1,37 @@
-<template id="item-card">
-  <h4 class="title" attribute="title"></h4>
-  <p class="description" attribute="description"></p>
-  <p class="ingredients" attribute="ingredients"></p>
-  <small class="price" attribute="price"></small>
+<template id="item-card" class="item-card">
+  <h4 class="title" part="title"></h4>
+  <p class="description" part="description"></p>
+  <p class="ingredients" part="ingredients"></p>
+  <small class="price" part="price"></small>
+  <style>
+    span.highlight {
+      background-color: yellow;
+      color: black;
+    }
+  </style>
 </template>
 
 <script lang="ts" type="module">
   import BaseComponent from "./src/components/BaseComponent.ts";
+  import highlight from "./src/lib/highlight.ts";
   customElements.define(
     "item-card",
-    class ItemCard extends BaseComponent {}
+    class ItemCard extends BaseComponent {
+      setup() {
+        this.searchTerm = this.dataset?.searchTerm;
+      }
+      render() {
+        this.shadowRoot.querySelector('[part="title"]').innerHTML = highlight(this.dataset.title, this.searchTerm);
+        this.shadowRoot.querySelector('[part="description"]').innerHTML = highlight(this.dataset.description, this.searchTerm);
+        this.shadowRoot.querySelector('[part="ingredients"]').innerHTML = highlight(this.dataset.ingredients, this.searchTerm);
+        this.shadowRoot.querySelector('[part="price"]').innerHTML = highlight(this.dataset.price, this.searchTerm);
+      }
+      attributeChangedCallback(name, oldValue, newValue) {
+        if (name === "data-search-term") {
+          this.searchTerm = newValue;
+          this.render();
+        }
+      }
+    }
   );
 </script>
