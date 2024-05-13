@@ -1,6 +1,11 @@
-import includeHtml from "vite-include-html-plugin";
 import { defineConfig } from "vite";
+import posthtml from '@vituum/vite-plugin-posthtml';
 
 export default defineConfig({
-  plugins: [includeHtml()],
+  plugins: [posthtml({
+    root: '',
+    include: '**/*.html',
+    plugins: [],
+    options: {},
+  })],
 });
