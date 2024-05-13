@@ -1,0 +1,271 @@
+{
+  "PIZZA OR CALZONE": {
+    "description": "Pizza and Calzone are served with choice of soup or green salad and soft drink. All Calzone Include Ricotta Cheese.",
+    "items": {
+      "Deluxe": {
+        "ingredients": "Pepperoni, Italian sausage, mushrooms, onions, bell peppers, olives, tomato sauce, and mozzarella.",
+        "price": "$7.95"
+      },
+      "Vegetarian": {
+        "ingredients": "Mushrooms, onions, black olives, bell peppers, fresh tomato, tomato sauce, and mozzarella.",
+        "price": "$7.95"
+      },
+      "BBQ Chicken": {
+        "ingredients": "Grilled chicken breast, red onions, cilantro, mozzarella, and tomato sauce.",
+        "price": "$8.20"
+      },
+      "Roma Tomato": {
+        "ingredients": "Fresh slice of roma tomato, roasted garlic, mozzarella cheese, and fresh basil. No tomato sauce.",
+        "price": "$7.95"
+      },
+      "Eggplant Feta": {
+        "ingredients": "Roasted eggplant, sun-dried tomatoes, tomato sauce, mozzarella, and feta cheese.",
+        "price": "$7.95"
+      },
+      "Mediterranean": {
+        "ingredients": "Grilled marinated eggplant, hearts of palm, artichoke hearts, sun-dried tomatoes, fresh basil, tomato sauce, and mozzarella cheese.",
+        "price": "$8.20"
+      },
+      "Western Chicken": {
+        "ingredients": "Marinated Chicken breast, cilantro, fresh tomatoes, jalapeños, avocado, and mozzarella cheese.",
+        "price": "$8.20"
+      }
+    }
+  },
+  "INDIVIDUAL PIZZA": {
+    "description": "With choice of one topping. $6.55 Extra topping. 60 cent",
+    "items": {}
+  },
+  "PASTA": {
+    "description": "All pastas are served with garlic bread choice of salad or soup and a soft drink.",
+    "items": {
+      "Angel Hair Pomedora": {
+        "ingredients": "Roma Tomato, basil, garlic, mushrooms, Parmesan Cheese, wine, and olive oil.",
+        "price": "$7.95"
+      },
+      "Spaghetti": {
+        "ingredients": "Marinara sauce and mozzarella cheese.",
+        "price": "$7.95"
+      },
+      "Lasagna (Meat)": {
+        "ingredients": "Marinara sauce and mozzarella cheese.",
+        "price": "$8.20"
+      },
+      "Ravioli (Beef)": {
+        "ingredients": "Marinara sauce and mozzarella cheese.",
+        "price": "$8.20"
+      },
+      "Ravioli (Cheese)": {
+        "ingredients": "Marinara sauce and mozzarella cheese.",
+        "price": "$8.20"
+      },
+      "Baked Ziti": {
+        "ingredients": "Pasta mixed with Ricotta cheese and marinara sauce baked under a blanket of Mozzarella cheese.",
+        "price": "$8.20"
+      },
+      "Tortallini Primavera": {
+        "ingredients": "Cheese Tortallini with choice of cream sauce, or tomato sauce, mozzarella cheese, and fresh vegetables.",
+        "price": "$8.20"
+      },
+      "Chicken Parmesan": {
+        "ingredients": "Breast of chicken on a bed of fettuccini homemade tomato sauce, topped with mozzarella cheese.",
+        "price": "$8.20"
+      },
+      "Eggplant Parmesan": {
+        "ingredients": "Breaded eggplant prepared in our delicious marinara sauce with mozzarella cheese on fettuccini.",
+        "price": "$8.20"
+      },
+      "Chicken Alfredo": {
+        "ingredients": "Breast of chicken on bed of Fettuccini with Alfredo Sauce and Parmesan Cheese.",
+        "price": "$8.45"
+      }
+    }
+  },
+  "SALADS": {
+    "description": "All Salads Include Garlic Bread. Choice of Dressing: Italian, Ranch, Blue Cheese, Thousand Islands, Caesar, and Vinaigrette.",
+    "items": {
+      "Chicken Pasta Salad": {
+        "ingredients": "Chicken, breast, Penne, red peppers, garlic, zucchini, tomato sauce, and Parmesan Cheese.",
+        "price": "$8.25"
+      },
+      "Caesar Salad": {
+        "ingredients": "Fresh romaine, croutons, Parmesan cheese, with our Caesar dressing.",
+        "price": "$5.75",
+        "additional": "with grilled chicken breast. Add: $2.15"
+      },
+      "Turkey & Salami": {
+        "ingredients": "Turkey, salami, mixed greens, fresh tomatoes, kalamata olives, fresh basil, pepperoncini, and mozzarella cheese with balsamic vinaigrette.",
+        "price": "$8.20"
+      },
+      "Spinach Salad": {
+        "ingredients": "Fresh baby spinach with Roma tomatoes, feta cheese, sun-dried tomatoes, artichoke hearts with balsamic vinaigrette.",
+        "price": "$7.95",
+        "additional": "with chicken. $1.55"
+      },
+      "Greek Salad": {
+        "ingredients": "Blend of mixed greens and baby lettuce, Roma tomatoes, feta cheese, red onions, Greek olives, cucumbers, and pepperoncini with choice of Italian dressing or balsamic vinaigrette.",
+        "price": "$7.95"
+      },
+      "Anti Pasto": {
+        "ingredients": "With salami, ham, pepperoni, black olives, tomatoes, red onions, mozzarella cheese, and pepperoncini on mixed greens.",
+        "price": "$7.95"
+      },
+      "Grilled Chicken": {
+        "ingredients": "Breast of chicken, mixed greens, tomatoes, red onions, pepperoncini, black olives, and mozzarella cheese.",
+        "price": "$7.95"
+      },
+      "Grilled Shrimp": {
+        "ingredients": "Large shrimp with penne pasta, red peppers, tossed with balsamic vinaigrette on bed of mixed greens.",
+        "price": "$9.00"
+      },
+      "BBQ Chicken Salad": {
+        "ingredients": "Marinated chicken glazed with BBQ sauce, black beans, tomatoes, cheese, tortilla chips bed of greens – BBQ dressing.",
+        "price": "$8.00"
+      },
+      "Chicken Avocado Salad": {
+        "ingredients": "Grilled chicken, romaine, avocado, artichoke, red onions, tomatoes, and kalamata olives.",
+        "price": "$8.00"
+      }
+    }
+  },
+  "Beverages": {
+    "description": "Quench your thirst with our refreshing selection of beverages, ranging from classic sodas like Coke and 7UP to a variety of teas, fruit juices, and specialty drinks. Whether you're craving a fizzy cola, a zesty citrus soda, or a soothing cup of tea, we have the perfect beverage to complement your meal and keep you refreshed.",
+    "items": {
+      "Coke": {
+        "id": 1,
+        "name": "Coke"
+      },
+      "Diet Coke": {
+        "id": 2,
+        "name": "Diet Coke"
+      },
+      "7UP": {
+        "id": 3,
+        "name": "7UP"
+      },
+      "Orange": {
+        "id": 4,
+        "name": "Orange"
+      },
+      "Dr. Pepper": {
+        "id": 5,
+        "name": "Dr. Pepper"
+      },
+      "Root Beer": {
+        "id": 6,
+        "name": "Root Beer"
+      },
+      "Lipton Tea": {
+        "id": 7,
+        "name": "Lipton Tea"
+      },
+      "Grape": {
+        "id": 8,
+        "name": "Grape"
+      },
+      "Lemonade": {
+        "id": 9,
+        "name": "Lemonade"
+      },
+      "Snapple": {
+        "id": 10,
+        "name": "Snapple"
+      }
+    }
+  },
+  "GOURMET SANDWICHES": {
+    "description": "All sandwiches are served with salad or soup and soft drink. Your choice of wheat or sourdough bread.",
+    "items": {
+      "Eggplant Chicken": {
+        "ingredients": "Chicken breast with grilled eggplant, feta cheese, lettuce, tomatoes, mayonnaise, and Dijon mustard.",
+        "price": "$7.95"
+      },
+      "Vegetarian Sandwich": {
+        "ingredients": "Fresh sliced avocados, sun-dried tomatoes, lettuce, tomatoes, alfalfa sprouts, provolone cheese, mayonnaise, and Dijon mustard.",
+        "price": "$7.95"
+      },
+      "Grilled Chicken & Avocado": {
+        "ingredients": "Grilled chicken breast, slices of avocado, lettuce, tomatoes, alfalfa sprouts, mayonnaise, Dijon mustard, and provolone cheese.",
+        "price": "$7.95"
+      },
+      "BBQ Chicken": {
+        "ingredients": "Grilled chicken breast, grilled red onions, cilantro, lettuce, tomatoes, provolone cheese, and special BBQ sauce.",
+        "price": "$8.20"
+      },
+      "Tuna Sandwich": {
+        "ingredients": "White albacore tuna blended with cucumber, fresh dill, celery, red and green onions, lettuce, tomatoes, provolone cheese, mayonnaise, and dijon mustard.",
+        "price": "$8.20"
+      },
+      "Chipotle Chicken Sandwich": {
+        "ingredients": "Chicken breast, chipotle sauce, mayonnaise, lettuce, melted mozzarella cheese, and tomatoes.",
+        "price": "$8.20"
+      },
+      "Basil Chicken Salad Sandwich": {
+        "ingredients": "Chicken breast blended with potatoes, cucumbers celery, fresh basil, red onion, mayonnaise, and mustard.",
+        "price": "$8.20"
+      }
+    }
+  },
+  "Hot SANDWICHES": {
+    "description": "All sandwiches are Transitional and served with salad or soup and soft drink.",
+    "items": {
+      "Roast Beef": {
+        "ingredients": "Sliced roast beef mozzarella, tomatoes, lettuce, and mayonnaise.",
+        "price": "$6.95"
+      },
+      "Pastrami": {
+        "ingredients": "Lean slices of pastrami, mozzarella, pickles, and mustard.",
+        "price": "$6.95"
+      },
+      "Chicken Parmesan": {
+        "ingredients": "Chicken breast, mozzarella, and tomato sauce.",
+        "price": "$6.95"
+      },
+      "Club": {
+        "ingredients": "Sliced roast beef, turkey, and ham served with lettuce, tomatoes, mozzarella cheese, and mayonnaise.",
+        "price": "$6.95"
+      },
+      "Chicken Sub": {
+        "ingredients": "Breast of chicken, mozzarella cheese, lettuce, tomatoes, and mayonnaise.",
+        "price": "$6.95"
+      },
+      "Meatballs & Cheese": {
+        "ingredients": "Homemade meatballs, melted mozzarella cheese, and Italian tomato sauce.",
+        "price": "$6.95"
+      },
+      "Italian Sausage & Cheese": {
+        "ingredients": "Italian sausage links, melted mozzarella cheese, and Italian tomato sauce.",
+        "price": "$6.95"
+      },
+      "Eggplant": {
+        "ingredients": "Slices of breaded eggplant, melted mozzarella, and Italian tomato sauce.",
+        "price": "$6.95"
+      },
+      "Ham & Cheese": {
+        "ingredients": "Slices of ham, lettuce, tomatoes, mozzarella cheese, and mayonnaise.",
+        "price": "$6.95"
+      },
+      "Hero Sandwich": {
+        "ingredients": "Salami, Canadian bacon, pepperoni, mozzarella cheese, lettuce, tomatoes, and mayonnaise.",
+        "price": "$6.95"
+      }
+    }
+  },
+  "Cold Sandwiches": {
+    "description": "All sandwiches are Transitional and served with salad or soup and soft drink.",
+    "items": {
+      "Submarine": {
+        "ingredients": "ham, turkey, roast beef, salami, provolone cheese, lettuce, tomato, onions, oil, vinegar, salt, pepper",
+        "price": "$6.95"
+      },
+      "Turkey": {
+        "ingredients": "turkey, provolone cheese, lettuce, tomato, onions, oil, vinegar, salt, pepper",
+        "price": "$6.95"
+      },
+      "Avocado and Cheese": {
+        "ingredients": "avocado, cheddar cheese, lettuce, tomato, onions, oil, vinegar, salt, pepper",
+        "price": "$6.95"
+      }
+    }
+  }
+}

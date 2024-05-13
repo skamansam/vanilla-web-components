@@ -1,0 +1,131 @@
+{
+  "STEAKS": {
+    "description": "All steaks are served with your choice of side dish and a garden salad.",
+    "items": {
+      "Ribeye Steak": {
+        "description": "A juicy ribeye steak grilled to perfection.",
+        "price": "$19.95"
+      },
+      "Filet Mignon": {
+        "description": "Tender filet mignon cooked to your liking.",
+        "price": "$24.95"
+      },
+      "New York Strip": {
+        "description": "A classic New York strip steak, char-grilled to perfection.",
+        "price": "$22.95"
+      },
+      "T-Bone Steak": {
+        "description": "A hearty T-bone steak, grilled to your preference.",
+        "price": "$26.95"
+      }
+    }
+  },
+  "SEAFOOD": {
+    "description": "Enjoy our delicious seafood dishes, served with your choice of side dish and a garden salad.",
+    "items": {
+      "Grilled Salmon": {
+        "description": "Fresh salmon fillet grilled with lemon and herbs.",
+        "price": "$18.95"
+      },
+      "Shrimp Scampi": {
+        "description": "Tender shrimp sautéed in garlic butter and white wine sauce.",
+        "price": "$20.95"
+      },
+      "Lobster Tail": {
+        "description": "A succulent lobster tail, served with drawn butter.",
+        "price": "$29.95"
+      },
+      "Fish and Chips": {
+        "description": "Crispy battered fish fillets served with French fries and tartar sauce.",
+        "price": "$16.95"
+      }
+    }
+  },
+  "CHICKEN": {
+    "description": "Savor our flavorful chicken dishes, served with your choice of side dish and a garden salad.",
+    "items": {
+      "Grilled Chicken Breast": {
+        "description": "Juicy chicken breast grilled to perfection.",
+        "price": "$14.95"
+      },
+      "Chicken Marsala": {
+        "description": "Tender chicken breasts cooked in a rich Marsala wine sauce.",
+        "price": "$16.95"
+      },
+      "Stuffed Chicken": {
+        "description": "Chicken breasts stuffed with spinach, mushrooms, and cheese, baked to perfection.",
+        "price": "$17.95"
+      },
+      "Lemon Herb Chicken": {
+        "description": "Succulent chicken breasts marinated in lemon and herbs, grilled to perfection.",
+        "price": "$15.95"
+      }
+    }
+  },
+  "PASTA": {
+    "description": "Indulge in our comforting pasta dishes, served with garlic bread and a garden salad.",
+    "items": {
+      "Spaghetti Carbonara": {
+        "description": "Spaghetti tossed in a creamy bacon and egg sauce.",
+        "price": "$12.95"
+      },
+      "Fettuccine Alfredo": {
+        "description": "Fettuccine pasta in a rich and creamy Alfredo sauce.",
+        "price": "$14.95"
+      },
+      "Lasagna": {
+        "description": "Layers of pasta, meat sauce, and cheese baked to perfection.",
+        "price": "$16.95"
+      },
+      "Chicken Parmesan": {
+        "description": "Breaded chicken breast topped with marinara sauce and melted cheese, served over spaghetti.",
+        "price": "$17.95"
+      }
+    }
+  },
+  "Beverages": {
+    "description": "Quench your thirst with our refreshing selection of beverages, ranging from classic sodas like Coke and 7UP to a variety of teas, fruit juices, and specialty drinks. Whether you're craving a fizzy cola, a zesty citrus soda, or a soothing cup of tea, we have the perfect beverage to complement your meal and keep you refreshed.",
+    "items": {
+      "Coke": {
+        "id": 1,
+        "name": "Coke"
+      },
+      "Diet Coke": {
+        "id": 2,
+        "name": "Diet Coke"
+      },
+      "7UP": {
+        "id": 3,
+        "name": "7UP"
+      },
+      "Orange": {
+        "id": 4,
+        "name": "Orange"
+      },
+      "Dr. Pepper": {
+        "id": 5,
+        "name": "Dr. Pepper"
+      },
+      "Root Beer": {
+        "id": 6,
+        "name": "Root Beer"
+      },
+      "Lipton Tea": {
+        "id": 7,
+        "name": "Lipton Tea"
+      },
+      "Grape": {
+        "id": 8,
+        "name": "Grape"
+      },
+      "Lemonade": {
+        "id": 9,
+        "name": "Lemonade"
+      },
+      "Snapple": {
+        "id": 10,
+        "name": "Snapple"
+      }
+    }
+  }
+}
