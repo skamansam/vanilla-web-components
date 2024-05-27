@@ -1,5 +1,6 @@
 import "./style.css";
-import menu from "./assets/dinnerMenu.json";
+import lunchMenu from "./assets/lunchMenu.json";
+import dinnerMenu from "./assets/dinnerMenu.json";
 import { getIcon } from "./assets/icons.ts";
 
 const tailwindIcon = getIcon("logos:tailwindcss-icon")?.svg;
@@ -19,9 +20,25 @@ document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
 web site without the need for a heavy framework like ${reactIcon}React and ${vueIcon}Vue, or even a compiler
 like ${svelteIcon}Svelte.</p>
 <p>Coming Soon: A rudimentary ${fluxIcon}Flux store, to show that you don't even need ${reduxIcon}Redux, ${vueIcon}Vuex, or ${piniaIcon}Pinia.</p>
+<p class="w-100">
+  <select name="menuSelection">
+    <option value="lunch">Lunch Menu<option>
+    <option value="dinner">Dinner Menu<option>
+  </select>
+</p>
 <category-search></category-search>
 `;
 
-document
-  .querySelector<HTMLDivElement>("#app")!
-  .querySelector("category-search")!.menu = menu;
+const selectElement = document.querySelector<HTMLSelectElement>("#app select[name='menuSelection']");
+const categorySearchElement = document.querySelector<HTMLDivElement>("#app category-search");
+
+categorySearchElement.menu = lunchMenu;
+selectElement.addEventListener('change', (event) => {
+  const selectedMenu = event.target.value;
+
+  if (selectedMenu === 'lunch') {
+    categorySearchElement.menu = lunchMenu;
+  } else if (selectedMenu === 'dinner') {
+    categorySearchElement.menu = dinnerMenu;
+  }
+});
