@@ -1,4 +1,4 @@
-import { test, expect, Locator } from "@playwright/test";
+import { test, expect } from "@playwright/test";
 import dinnerMenu from "../src/assets/dinnerMenu.json" assert { type: "json" };
 import lunchMenu from "../src/assets/lunchMenu.json" assert { type: "json" };
 
