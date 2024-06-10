@@ -12,9 +12,9 @@ export default class BaseComponent extends HTMLElement {
   }
   __initComponent() {
     this.__setup();
-    if(this.setup) this.setup();
+    if(this.hasOwnProperty('setup')) this.setup();
     this.__render();
-    if(this.render) this.render();
+    if(this.hasOwnProperty('render')) this.render();
   }
   __setup() {
     if (!this.setup || this.setup === this.constructor.prototype.setup) return;
@@ -26,7 +26,7 @@ export default class BaseComponent extends HTMLElement {
       if (attribute && value) elem.textContent = value;
       else elem.style.display = "none";
     });
-    if (!this.render || this.render === this.constructor.prototype.render) return;
+    if (!this.hasOwn('render') || this.render === this.constructor.prototype.render) return;
   }
   static get observedAttributes() {
     return [];
