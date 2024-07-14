@@ -1,0 +1,36 @@
+:host {
+  --primary-color: hsl(36, 60%, 49%);  /* default. can be set externally */
+  border: var(--primary-color) 1px solid !important;
+  /* border-color: var(--primary-color); */
+  @apply m-5 absolute border-2 p-4 border-[color:var(--primary-color)] text-[color:var(--primary-color)] ;
+}
+.search-menu-type {
+  font-size: 1.5rem;
+  padding: 0.5rem;
+}
+input {
+}
+.search-text {
+  display: none;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+.search-results {
+  display: none;
+  gap: 1rem;
+}
+.corner {
+  fill: var(--primary-color);
+}
+#corner-top-left {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+#corner-top-right {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: -1;
+}

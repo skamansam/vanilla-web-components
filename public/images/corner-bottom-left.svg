@@ -1,0 +1,8 @@
+<svg id="visual" viewBox="0 0 900 450" width="900" height="450" xmlns="http://www.w3.org/2000/svg"
+  xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
+  <g transform="translate(0, 450)">
+    <path
+      d="M0 -135C24.2 -131.8 48.4 -128.6 67.5 -116.9C86.6 -105.2 100.5 -84.9 110.9 -64C121.2 -43.1 128.1 -21.5 135 0L0 0Z"
+      fill="hsla(36,60%,49%,1)"></path>
+  </g>
+</svg>
