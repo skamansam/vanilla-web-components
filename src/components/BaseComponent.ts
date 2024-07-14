@@ -26,11 +26,13 @@ export default class BaseComponent extends HTMLElement {
       if (attribute && value) elem.textContent = value;
       else elem.style.display = "none";
     });
-    if (!this.hasOwn('render') || this.render === this.constructor.prototype.render) return;
+    if (!this.hasOwnProperty('render') || this.render === this.constructor.prototype.render) return;
   }
   static get observedAttributes() {
     return [];
   }
+  setup() {}
+  render() {}
   attributeChangedCallback(name, oldValue, newValue) {
   }
 }
