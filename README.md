@@ -1,5 +1,7 @@
 # Vanilla Web Components Demo
 
+[![wakatime](https://wakatime.com/badge/user/1884b991-b3c5-4cbe-8310-3ae959f019a8/project/151c420c-c16e-4bef-8fb2-0bb9d625fba4.svg)](https://wakatime.com/badge/user/1884b991-b3c5-4cbe-8310-3ae959f019a8/project/151c420c-c16e-4bef-8fb2-0bb9d625fba4)
+
 This is a demo on how to use <img src="https://api.iconify.design/logos:vitejs.svg"/> Vite + <img src="https://api.iconify.design/logos:tailwindcss-icon.svg"/> Tailwind + <img src="https://api.iconify.design/logos:javascript.svg"/> Vanilla Web Components to create a super-fast web site without the need for a heavy framework like <img src="https://api.iconify.design/logos:react.svg"/> React or <img src="https://api.iconify.design/logos:vue.svg"/> Vue, or even a compiler like <img src="https://api.iconify.design/logos:svelte-icon.svg"/> Svelte.
 
 We will be using <img src="https://api.iconify.design/logos:playwright.svg"/> Playwright + <img src="https://api.iconify.design/logos:storybook-icon.svg"/>Storybook to aid us in our task.
