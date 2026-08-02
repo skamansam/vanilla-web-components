@@ -3,13 +3,14 @@
  * If you want to add more, you can add the icons to a bag, export the bag as as json, and add it as ./icons.json.
  */
 export type Icon = {
-  name: string;
-  svg: string;
+	name: string;
+	svg: string;
 };
 
 import allIcons from "./icons.json";
 
-export const getIcon = (name: string): Icon | undefined => allIcons.find(icon => icon.name === name);
+export const getIcon = (name: string): Icon | undefined =>
+	allIcons.find((icon) => icon.name === name);
 
 /*
  * You can alternatively export each icon individually
