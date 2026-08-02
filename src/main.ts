@@ -1,7 +1,8 @@
 import "./style.css";
-import lunchMenu from "./assets/lunchMenu.json";
 import dinnerMenu from "./assets/dinnerMenu.json";
 import { getIcon } from "./assets/icons.ts";
+import lunchMenu from "./assets/lunchMenu.json";
+import type { Menu } from "./stores/mainStore.ts";
 
 const tailwindIcon = getIcon("logos:tailwindcss-icon")?.svg;
 const viteIcon = getIcon("logos:vitejs")?.svg;
@@ -14,7 +15,9 @@ const svelteIcon = getIcon("logos:svelte-icon")?.svg;
 const piniaIcon = getIcon("logos:pinia")?.svg;
 const playwrightIcon = getIcon("logos:playwright")?.svg;
 
-document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
+const appElement = document.querySelector<HTMLDivElement>("#app");
+if (appElement) {
+	appElement.innerHTML = `
 <section class="mb-8 border p-8">
   <h1 class="text-green-800 text-center w-100 mb-3">Vanilla Web Components Demo</h1>
   <p>This is a demo on how to use ${viteIcon}Vite + ${tailwindIcon}Tailwind + ${playwrightIcon}Playwright + ${javascriptIcon}Vanilla Web Components to create a super-fast
@@ -34,24 +37,25 @@ document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
   <p class="">You can filter by category or search by name.</p>
 </category-search>
 `;
+}
 
 const selectElement = document.querySelector<HTMLSelectElement>(
-  "#app select[name='menuSelection']"
+	"#app select[name='menuSelection']",
 );
-const categorySearchElement = document.querySelector<HTMLDivElement>(
-  "#app category-search"
-);
+const categorySearchElement = document.querySelector<
+	HTMLElement & { menu?: Menu }
+>("#app category-search");
 
 if (categorySearchElement) categorySearchElement.menu = lunchMenu;
 
 if (selectElement && categorySearchElement) {
-  selectElement.addEventListener("change", (event) => {
-    const selectedMenu = event?.target?.value;
+	selectElement.addEventListener("change", (event) => {
+		const selectedMenu = (event?.target as HTMLSelectElement)?.value;
 
-    if (selectedMenu === "lunch") {
-      categorySearchElement.menu = lunchMenu;
-    } else if (selectedMenu === "dinner") {
-      categorySearchElement.menu = dinnerMenu;
-    }
-  });
+		if (selectedMenu === "lunch") {
+			categorySearchElement.menu = lunchMenu;
+		} else if (selectedMenu === "dinner") {
+			categorySearchElement.menu = dinnerMenu;
+		}
+	});
 }
