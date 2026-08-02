@@ -1,4 +1,7 @@
+/// <reference types="vite/client" />
 import type { Preview } from "@storybook/web-components";
+import "../src/style.css";
+import { registerHtmlComponents } from "./registerHtmlComponents";
 
 const preview: Preview = {
 	parameters: {
@@ -9,6 +12,12 @@ const preview: Preview = {
 			},
 		},
 	},
+	loaders: [
+		async () => {
+			await registerHtmlComponents();
+			return {};
+		},
+	],
 };
 
 export default preview;

@@ -6,6 +6,8 @@ export default class BaseComponent extends HTMLElement {
 	// broke template lookup (and therefore the shadow DOM) in production builds while
 	// working fine in unminified dev builds.
 	static tagName: string;
+	#initialized = false;
+
 	constructor() {
 		super();
 		const htmlElement = (this.constructor as typeof BaseComponent).tagName;
@@ -15,9 +17,14 @@ export default class BaseComponent extends HTMLElement {
 
 		const shadowRoot = this.attachShadow({ mode: "open" });
 		shadowRoot.appendChild(templateContent.cloneNode(true));
+	}
+
+	connectedCallback() {
 		this.__initComponent();
 	}
 	__initComponent() {
+		if (this.#initialized) return;
+		this.#initialized = true;
 		// `setup`/`render` are regular class methods on subclasses, so they live on the
 		// prototype, not as "own" properties of the instance. `Object.hasOwn(this, "setup")`
 		// (or the old `hasOwnProperty` equivalent) is therefore always false and would
