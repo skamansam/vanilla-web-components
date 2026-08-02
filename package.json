@@ -14,13 +14,8 @@
 		"build-storybook": "storybook build"
 	},
 	"devDependencies": {
-		"@chromatic-com/storybook": "^5.2.1",
 		"@playwright/test": "^1.62.1",
-		"@storybook/addon-essentials": "^10.5.5",
 		"@storybook/addon-links": "^10.5.5",
-		"@storybook/addon-mdx-gfm": "^10.5.5",
-		"@storybook/blocks": "^10.5.5",
-		"@storybook/test": "^10.5.5",
 		"@storybook/web-components": "^10.5.5",
 		"@storybook/web-components-vite": "^10.5.5",
 		"@tailwindcss/postcss": "^4.3.3",
