@@ -14,9 +14,11 @@
 <script lang="ts" type="module">
   import BaseComponent from "./src/components/BaseComponent.ts";
   import highlight from "./src/lib/highlight.ts";
+
   customElements.define(
     "item-card",
     class ItemCard extends BaseComponent {
+      static tagName = "item-card";
       setup() {
         this.searchTerm = this.dataset?.searchTerm;
       }
@@ -26,7 +28,7 @@
         this.shadowRoot.querySelector('[part="ingredients"]').innerHTML = highlight(this.dataset.ingredients, this.searchTerm);
         this.shadowRoot.querySelector('[part="price"]').innerHTML = highlight(this.dataset.price, this.searchTerm);
       }
-      attributeChangedCallback(name, oldValue, newValue) {
+      attributeChangedCallback(name, _oldValue, newValue) {
         if (name === "data-search-term") {
           this.searchTerm = newValue;
           this.render();

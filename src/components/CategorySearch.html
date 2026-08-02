@@ -49,9 +49,11 @@
 </template>
 <script lang="ts" type="module">
   import BaseComponent from "@/components/BaseComponent.ts";
+
   customElements.define(
     "category-search",
     class CategorySearch extends BaseComponent {
+      static tagName = "category-search";
       setup() {
         this._menu = {};
         this.filteredMenu = this._menu;
@@ -66,6 +68,7 @@
       }
       render() {
         const filteredMenu = this.filterMenu(this.searchTerm);
+        // debugger;
         if (this.searchTerm) {
           const searchTextElement = this.shadowRoot.querySelector(
             '[part="searchTerm"]'
@@ -93,7 +96,7 @@
       filterMenu(searchString) {
         if (!searchString && searchString !== "") return this._menu;
         const search = searchString?.toLowerCase();
-        let filteredMenu = {};
+        const filteredMenu = {};
         Object.entries(this.menu).forEach(([category, data]) => {
           if (category.toLowerCase().includes(search))
             filteredMenu[category] = data;
@@ -112,7 +115,7 @@
       static get observedAttributes() {
         return ["search-term", "description", "price", "title"];
       }
-      attributeChangedCallback(name, oldValue, newValue) {
+      attributeChangedCallback(name, _oldValue, newValue) {
         if (name === "search-term") {
           this.searchTerm = newValue;
           this.render();

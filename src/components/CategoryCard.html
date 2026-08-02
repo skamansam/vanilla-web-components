@@ -15,9 +15,11 @@
 <script lang="ts" type="module">
   import BaseComponent from "./src/components/BaseComponent.ts";
   import highlight from "./src/lib/highlight.ts";
+
   customElements.define(
     "category-card",
     class CategoryCard extends BaseComponent {
+      static tagName = "category-card";
       setup() {
         this.filteredItems = JSON.parse(this.dataset?.items);
         this.searchTerm = this.dataset?.searchTerm;
@@ -54,7 +56,7 @@
         if (Object.keys(filteredItems).length === 0) filteredItems = allItems;
         this.filteredItems = filteredItems;
       }
-      attributeChangedCallback(name, oldValue, newValue) {
+      attributeChangedCallback(name, _oldValue, newValue) {
         if (name === "data-search-term") {
           this.searchTerm = newValue;
           this.render();
