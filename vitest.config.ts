@@ -2,8 +2,8 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { storybookTest } from "@storybook/addon-vitest/vitest-plugin";
 import { playwright } from "@vitest/browser-playwright";
-import { defineConfig } from "vitest/config";
 import { mergeConfig } from "vite";
+import { defineConfig } from "vitest/config";
 import viteConfig from "./vite.config.js";
 
 const dirname = path.dirname(fileURLToPath(import.meta.url));
