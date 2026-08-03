@@ -41,7 +41,7 @@
           }).join("")
       }
       static get observedAttributes() {
-        return ["data-search-term", "data-description", "data-items"];
+        return ["data-title", "data-search-term", "data-description", "data-items"];
       }
       _filterItems() {
         const allItems = JSON.parse(this.dataset.items);
@@ -56,11 +56,13 @@
         if (Object.keys(filteredItems).length === 0) filteredItems = allItems;
         this.filteredItems = filteredItems;
       }
-      attributeChangedCallback(name, _oldValue, newValue) {
+      attributeChangedCallback(name, _oldValue, _newValue) {
         if (name === "data-search-term") {
-          this.searchTerm = newValue;
-          this.render();
+          this.searchTerm = _newValue;
+        } else if (name === "data-items") {
+          this.setup();
         }
+        this.render();
       }
     }
   );

@@ -1,7 +1,4 @@
 <template id="category-search" class="category-search">
-  <style lang="css">
-    @import "src/components/category-search.css";
-  </style>
   <svg
     id="corner-top-left"
     class="corner"
@@ -49,15 +46,20 @@
 </template>
 <script lang="ts" type="module">
   import BaseComponent from "@/components/BaseComponent.ts";
+  import searchCss from "./src/components/category-search.css?inline";
 
   customElements.define(
     "category-search",
     class CategorySearch extends BaseComponent {
       static tagName = "category-search";
       setup() {
-        this._menu = {};
+        this._menu = this._menu ?? {};
         this.filteredMenu = this._menu;
         this.searchTerm = this.dataset?.searchTerm ?? "";
+
+        const style = document.createElement("style");
+        style.textContent = searchCss;
+        this.shadowRoot.appendChild(style);
 
         this.shadowRoot
           .querySelector("[name='search']")
@@ -108,7 +110,7 @@
             )
           )
             filteredMenu[category] = data;
-          return false;
+          // return;
         });
         return filteredMenu;
       }

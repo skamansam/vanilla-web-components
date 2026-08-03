@@ -29,8 +29,8 @@ if (appElement) {
   <h1 class="logo text-5xl font-thin text-center h-32 p-6"><span class="font-cursive text-7xl font-bold">Rude</span>staurant</h1>
   <h1 class="text-center">This is our
     <select name="menuSelection" class="border-b border-primary inline-block font-cursive bg-transparent px-3">
-      <option value="lunch" class="bg-transparent bg-black">Lunch Menu</option>
-      <option value="dinner" class="bg-transparent bg-black">Dinner Menu</option>
+      <option value="lunch" class=" bg-black">Lunch Menu</option>
+      <option value="dinner" class=" bg-black">Dinner Menu</option>
     </select>
   </h1>
   <p class="text-xl">Please Make a Selection and add it to your cart.</p>

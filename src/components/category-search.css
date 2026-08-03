@@ -1,4 +1,4 @@
-@reference "./src/style.css";
+@reference "../style.css";
 
 :host {
 	--primary-color: hsl(36, 60%, 49%); /* default. can be set externally */
