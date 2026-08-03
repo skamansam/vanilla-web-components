@@ -14,6 +14,7 @@ const reactIcon = getIcon("logos:react")?.svg;
 const svelteIcon = getIcon("logos:svelte-icon")?.svg;
 const piniaIcon = getIcon("logos:pinia")?.svg;
 const playwrightIcon = getIcon("logos:playwright")?.svg;
+const storybookIcon = getIcon("logos:storybook")?.svg;
 
 const appElement = document.querySelector<HTMLDivElement>("#app");
 if (appElement) {
@@ -25,7 +26,10 @@ if (appElement) {
   like ${svelteIcon}Svelte.</p>
   <p><em>Coming Soon</em>: A rudimentary ${fluxIcon}Flux store, to show that you don't even need ${reduxIcon}Redux, ${vueIcon}Vuex, or ${piniaIcon}Pinia.</p>
   <p class="text-center mt-4">
-    <a href="./storybook/" class="text-blue-600 underline">Update: here is the Storybook integration</a>
+    <a href="./storybook/" class="text-blue-600 underline">Update: here is the ${storybookIcon}Storybook integration</a>
+  </p>
+  <p class="text-center mt-2">
+    <a href="./playwright-report/" class="text-green-700 underline">View ${playwrightIcon}Playwright test results</a>
   </p>
 </section>
 <category-search class="category-search">

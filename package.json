@@ -5,11 +5,13 @@
 	"type": "module",
 	"scripts": {
 		"dev": "vite",
-		"build": "tsc && vite build && pnpm build-storybook",
+		"build": "tsc && vite build && pnpm build-storybook && pnpm test",
 		"preview": "vite preview",
 		"preserve": "pnpm build",
 		"serve": "vite preview",
+		"pretest": "playwright install",
 		"test": "playwright test",
+		"posttest": "if [ -d dist ]; then cp -r playwright-report dist/playwright-report; fi",
 		"test:ui": "playwright test --ui",
 		"storybook": "storybook dev -p 6006",
 		"build-storybook": "storybook build -o dist/storybook"
