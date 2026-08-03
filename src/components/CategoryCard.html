@@ -21,7 +21,7 @@
     class CategoryCard extends BaseComponent {
       static tagName = "category-card";
       setup() {
-        this.filteredItems = JSON.parse(this.dataset?.items);
+        this.filteredItems = this.dataset?.items ? JSON.parse(this.dataset.items) : {};
         this.searchTerm = this.dataset?.searchTerm;
       }
       render() {
@@ -44,6 +44,10 @@
         return ["data-title", "data-search-term", "data-description", "data-items"];
       }
       _filterItems() {
+        if (!this.dataset.items) {
+          this.filteredItems = this.filteredItems ?? {};
+          return;
+        }
         const allItems = JSON.parse(this.dataset.items);
         if (!this.searchTerm || this.searchTerm === "") {
           this.filteredItems = allItems;
