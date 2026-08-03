@@ -11,8 +11,8 @@ import BaseComponent from "../src/components/BaseComponent.ts";
 import categoryCardHtml from "../src/components/CategoryCard.html?raw";
 import categorySearchHtml from "../src/components/CategorySearch.html?raw";
 import searchCss from "../src/components/category-search.css?inline";
-import highlight from "../src/lib/highlight.ts";
 import itemCardHtml from "../src/components/ItemCard.html?raw";
+import highlight from "../src/lib/highlight.ts";
 
 function registerComponent(raw: string) {
 	const templateMatch = raw.match(/<template[\s\S]*?<\/template>/);
@@ -37,12 +37,7 @@ function registerComponent(raw: string) {
 		const code = scriptMatch[1]
 			.replace(/import\s+.*?\s+from\s+["'][^"']+["'];?/g, "")
 			.trim();
-		const init = new Function(
-			"BaseComponent",
-			"highlight",
-			"searchCss",
-			code,
-		);
+		const init = new Function("BaseComponent", "highlight", "searchCss", code);
 		init(BaseComponent, highlight, searchCss);
 	}
 }
