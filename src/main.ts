@@ -24,6 +24,9 @@ if (appElement) {
   web site without the need for a heavy framework like ${reactIcon}React and ${vueIcon}Vue, or even a compiler
   like ${svelteIcon}Svelte.</p>
   <p><em>Coming Soon</em>: A rudimentary ${fluxIcon}Flux store, to show that you don't even need ${reduxIcon}Redux, ${vueIcon}Vuex, or ${piniaIcon}Pinia.</p>
+  <p class="text-center mt-4">
+    <a href="./storybook/" class="text-blue-600 underline">Update: here is the Storybook integration</a>
+  </p>
 </section>
 <category-search class="category-search">
   <h1 class="logo text-5xl font-thin text-center h-32 p-6"><span class="font-cursive text-7xl font-bold">Rude</span>staurant</h1>
