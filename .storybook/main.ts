@@ -7,5 +7,13 @@ const config: StorybookConfig = {
 		name: "@storybook/web-components-vite",
 		options: {},
 	},
+	viteFinal(config, { configType }) {
+		if (configType === "PRODUCTION") {
+			// Output will be nested under dist/storybook, so use relative
+			// asset paths so it can be served from any subpath.
+			config.base = "./";
+		}
+		return config;
+	},
 };
 export default config;

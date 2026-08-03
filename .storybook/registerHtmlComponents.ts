@@ -7,11 +7,14 @@
 // at runtime: it appends the `<template>` to `document.body` and evaluates
 // the inline module script, without requiring any changes to the component
 // files themselves.
+import BaseComponent from "../src/components/BaseComponent.ts";
 import categoryCardHtml from "../src/components/CategoryCard.html?raw";
 import categorySearchHtml from "../src/components/CategorySearch.html?raw";
+import searchCss from "../src/components/category-search.css?inline";
+import highlight from "../src/lib/highlight.ts";
 import itemCardHtml from "../src/components/ItemCard.html?raw";
 
-async function registerComponent(raw: string) {
+function registerComponent(raw: string) {
 	const templateMatch = raw.match(/<template[\s\S]*?<\/template>/);
 	if (templateMatch) {
 		const wrapper = document.createElement("div");
@@ -26,25 +29,21 @@ async function registerComponent(raw: string) {
 		/<script[^>]*type="module"[^>]*>([\s\S]*?)<\/script>/,
 	);
 	if (scriptMatch) {
-		// Component scripts import BaseComponent/helpers via the "@/" alias or
-		// paths relative to the project root (as they're inlined into
-		// index.html by posthtml-include). Once evaluated from a blob: URL,
-		// the module's base is opaque, so root-relative specifiers like
-		// "/src/..." can't be resolved against it ("base scheme isn't
-		// hierarchical"). Rewrite them to fully-qualified absolute URLs
-		// instead, which resolve regardless of the referencing module's base.
-		const code = scriptMatch[1].replace(
-			/(["'])(?:@\/|\.\/src\/)([^"']+)\1/g,
-			(_match, quote: string, subpath: string) =>
-				`${quote}${new URL(`/src/${subpath}`, location.href).href}${quote}`,
+		// The inline scripts import BaseComponent and helpers as if they were
+		// being run through posthtml-include in the app. In the built Storybook
+		// those source paths are not served, so we remove the import statements
+		// and run the script in a scope where the needed modules are provided
+		// by the preview bundle.
+		const code = scriptMatch[1]
+			.replace(/import\s+.*?\s+from\s+["'][^"']+["'];?/g, "")
+			.trim();
+		const init = new Function(
+			"BaseComponent",
+			"highlight",
+			"searchCss",
+			code,
 		);
-		const blob = new Blob([code], { type: "text/javascript" });
-		const url = URL.createObjectURL(blob);
-		try {
-			await import(/* @vite-ignore */ url);
-		} finally {
-			URL.revokeObjectURL(url);
-		}
+		init(BaseComponent, highlight, searchCss);
 	}
 }
 
@@ -53,9 +52,9 @@ let registerPromise: Promise<void> | null = null;
 export function registerHtmlComponents(): Promise<void> {
 	if (!registerPromise) {
 		registerPromise = (async () => {
-			await registerComponent(itemCardHtml);
-			await registerComponent(categoryCardHtml);
-			await registerComponent(categorySearchHtml);
+			registerComponent(itemCardHtml);
+			registerComponent(categoryCardHtml);
+			registerComponent(categorySearchHtml);
 		})();
 	}
 	return registerPromise;
