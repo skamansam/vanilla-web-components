@@ -51,3 +51,4 @@ This is a vanilla Web Components demo project. The goal is to explore modern bro
 - Use conventional commits.
 - Keep `CHANGELOG.md` updated for each release.
 - Follow the existing style and formatting. Run Biome before committing when possible.
+- Do not commit, push, or perform other destructive Git operations without explicit user approval.
