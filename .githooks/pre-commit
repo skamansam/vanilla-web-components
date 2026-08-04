@@ -1,0 +1,4 @@
+#!/bin/sh
+echo "Running Biome formatting and lint checks before commit..."
+echo "Run \`pnpm biome:fix\` to fix formatting issues"
+pnpm biome:check
