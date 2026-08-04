@@ -7,6 +7,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.1.0] - TBD
+
+### Added
+
+- Tracked `.githooks/pre-push` hook for running Storybook Vitest tests before every `git push`.
+- `setup:githooks` pnpm script to configure Git's `core.hooksPath` on new clones.
+- `pretest:storybook` script to auto-install Playwright browsers before Storybook tests.
+
+### Changed
+
+- Pre-push hook bypass is now `git push --no-verify` instead of a custom `NO_PUSH_TESTS` environment variable.
+
 ## [1.0.0] - TBD
 
 ### Added
