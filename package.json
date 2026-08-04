@@ -11,6 +11,7 @@
 		"serve": "vite preview",
 		"pretest": "playwright install",
 		"test": "playwright test",
+		"pretest:storybook": "playwright install",
 		"test:storybook": "vitest run --project=storybook",
 		"biome:check": "biome check .",
 		"biome:fix": "biome check . --write",
