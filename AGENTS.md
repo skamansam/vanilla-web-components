@@ -60,26 +60,12 @@ This project demonstrates how to build an enterprise-grade vanilla JavaScript ar
 
 ## Conventions
 
-- Use conventional commits.
-- Keep `CHANGELOG.md` updated for each release.
+- Use conventional commits with a leading gitmoji for clarity. See `docs/references/gitmoji.md` for all gitmojis.
+- Keep `CHANGELOG.md` updated for each release. See `docs/references/changelog.md` for details on how to write a chngelog.
 - Follow the existing style and formatting. Run Biome before committing when possible.
 - Do not commit, push, or perform other destructive Git operations without explicit user approval.
 
-## Changelog Maintenance
+## References
 
-Follow [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) conventions:
-
-- The changelog is for humans, not machines. Do not dump raw git commit logs into it.
-- Keep an `## [Unreleased]` section at the top to track upcoming changes.
-- When releasing, move the `Unreleased` changes into a new version section; the latest release comes first.
-- Use ISO 8601 dates (`YYYY-MM-DD`) for each release date.
-- Group changes under the standard types:
-  - `Added` for new features
-  - `Changed` for changes to existing functionality
-  - `Deprecated` for soon-to-be removed features
-  - `Removed` for now-removed features
-  - `Fixed` for bug fixes
-  - `Security` for vulnerability fixes
-- Always call out deprecations, removals, and breaking changes clearly.
-- Mention that the project follows [Semantic Versioning](https://semver.org/).
-- Update the changelog consistently; do not leave notable changes undocumented.
+- `docs/references/gitmoji.md` — gitmoji quick reference for commits and changelog entries.
+- `docs/references/changelog.md` — Keep a Changelog guidelines.

@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.2.0]
+
+### Added
+
+- 🔧 Added a `pre-commit` hook to run `pnpm biome:check` before every commit, keeping code formatting and linting green.
+- 📝 Added `AGENTS.md`, a project guide for LLMs with enterprise focus and agent conventions.
+
 ## [1.1.0]
 ### Added
 
