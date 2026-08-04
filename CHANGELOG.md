@@ -7,15 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-## [1.1.0] - TBD
-
+## [1.1.0]
 ### Added
 
 - added a pre-push hook to run test:storybook (vitest tests are in storybook) so we can keep github running green and clean
   - You need to manually run the setup:githooks command to set this up locally
 
-## [1.0.0] - TBD
-
+## [1.0.0]
 ### Added
 
 - Initial release of the vanilla web components demo menu app.
