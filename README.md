@@ -11,6 +11,49 @@ Coming Soon: A rudimentary <img src="https://api.iconify.design/logos:flux.svg"/
 This is an example of a crazy simple menu "app." It consists of several components, as well as a generated content header. For me, this just might be the beginning of my own JS Framework like Vue, but just a web component that you subclass. In fact, that is the way this demo works! There is a [base class](src/components/BaseComponent.ts) that contains the logic for linking the js code to the html element, handles shadowroot rendering, and intiating the component's lifecycle. It adds a few functions that make the child classes easier to work with, mainly separating the init step and the render step. 
 
 
+## Roadmap
+
+This project is intentionally evolving toward a tiny, dependency-free framework layer built only on modern web standards. The roadmap borrows the most useful concepts from React, Vue, and Svelte and re-implements them as native Web Components features.
+
+### 1.0 — Custom Elements Foundation *(current)*
+- Custom element base class with shadow DOM
+- HTML `<template>` loading and `[part]`-based rendering
+- Basic event handling in `setup()`
+- Vite + Tailwind + Storybook + Playwright tooling
+
+### 2.0 — Full Reactivity & Flux Store
+- Proxy-based reactive component `state`
+- Automatic `render()` scheduling on state changes
+- `computed` / derived values
+- `effect` primitives (`connected`, `disconnected`, `beforeRender`, `afterRender`)
+- A basic Flux store:
+  - central `state`
+  - `dispatch(action)`
+  - reducer functions
+  - `subscribe` / `unsubscribe` for components
+- One-way data flow from store → components
+
+### 3.0 — Directives, Bindings & Cross-Component Communication
+- Attribute / property reflection helpers
+- Two-way binding (`v-model` style) for form controls
+- Conditional rendering (`v-if` / `v-else`)
+- List rendering (`v-for` / `each`)
+- `provide` / `inject` context for parent/child data
+- Scoped style helpers (`::part`, `::slotted`, CSS custom properties)
+- Component-level transitions / animation hooks
+
+### 4.0 — Declarative Templating & Routing
+- Declarative templates without JSX (a tiny HTML DSL or DOM Parts)
+- `ref` / element references
+- Error boundaries / safe rendering
+- Client-side router and dynamic views
+- DevTools / Storybook integration for inspecting reactive state
+
+### Concepts borrowed from other frameworks
+- **React**: one-way props, hooks/effects, context, refs, composition over inheritance, one-way data flow.
+- **Vue**: reactive state, computed properties, watchers, directives (`v-if`, `v-for`, `v-model`), scoped slots, provide/inject, transitions.
+- **Svelte**: stores (`writable` / `derived` / `readable`), reactive declarations, compile-free templates, scoped styles, actions (`use:action`).
+
 ## NOTES:
 
 # Tailwind
