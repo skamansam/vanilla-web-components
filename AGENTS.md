@@ -60,12 +60,13 @@ This project demonstrates how to build an enterprise-grade vanilla JavaScript ar
 
 ## Conventions
 
-- Use conventional commits with a leading gitmoji for clarity. See `docs/references/gitmoji.md` for all gitmojis.
+- Use Conventional Commits with a leading gitmoji. See `docs/references/conventional-commits.md` for the format and `docs/references/gitmoji.md` for the gitmoji reference.
 - Keep `CHANGELOG.md` updated for each release. See `docs/references/changelog.md` for details on how to write a chngelog.
 - Follow the existing style and formatting. Run Biome before committing when possible.
 - Do not commit, push, or perform other destructive Git operations without explicit user approval.
 
 ## References
 
+- `docs/references/conventional-commits.md` — Conventional Commits format for this repository.
 - `docs/references/gitmoji.md` — gitmoji quick reference for commits and changelog entries.
 - `docs/references/changelog.md` — Keep a Changelog guidelines.
